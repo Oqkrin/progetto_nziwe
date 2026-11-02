@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b1rb45hreapb"]
+
+[ext_resource type="Script" uid="uid://dibina2b7oulr" path="res://player.gd" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdjdl"]
+size = Vector2(1199, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdjdl"]
+
+[node name="Node2D" type="Node2D" unique_id=364044624]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=979664181]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2080417715]
+position = Vector2(644.5, 660.5)
+shape = SubResource("RectangleShape2D_tdjdl")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=884397357]
+script = ExtResource("1_ig7tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1308360657]
+position = Vector2(668, 293)
+shape = SubResource("CapsuleShape2D_tdjdl")
