@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b1rb45hreapb"]
+
+[ext_resource type="PackedScene" uid="uid://4lskp0cnijo0" path="res://player.tscn" id="1_kvnai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdjdl"]
+size = Vector2(64, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvnai"]
+size = Vector2(64, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71m0o"]
+size = Vector2(1280, 64)
+
+[node name="main" type="Node2D" unique_id=364044624]
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=958082430]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=795789934]
+position = Vector2(-32, 352)
+shape = SubResource("RectangleShape2D_tdjdl")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1400331726]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1283449918]
+position = Vector2(1312, 352)
+shape = SubResource("RectangleShape2D_kvnai")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=979664181]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2080417715]
+position = Vector2(640, 672)
+shape = SubResource("RectangleShape2D_71m0o")
+
+[node name="player" parent="." unique_id=1275039791 instance=ExtResource("1_kvnai")]
+position = Vector2(661, 590)
