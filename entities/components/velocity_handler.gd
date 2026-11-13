@@ -1,7 +1,7 @@
 class_name VelocityHandler extends RefCounted
 
 #velocità limite raggiungibile
-@export var terminalVelocity: int = 2;
+@export var terminalVelocity: float = 0.5;
 
 #accelerazione px per tick
 @export var acceleration: int = 1;
