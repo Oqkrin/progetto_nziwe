@@ -1,0 +1,106 @@
+[gd_scene format=3]
+
+[ext_resource type="SpriteFrames" path="colour.tres" id="f0"]
+[ext_resource type="SpriteFrames" path="white.tres" id="f1"]
+
+[node name="Example" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(220, 51)
+zoom = Vector2(2, 2)
+
+[node name="colour-idle" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 0)
+sprite_frames = ExtResource("f0")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -30)
+
+[node name="colour-walk" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 0)
+sprite_frames = ExtResource("f0")
+animation = &"walk"
+autoplay = "walk"
+offset = Vector2(0, -30)
+
+[node name="colour-run" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(176, 0)
+sprite_frames = ExtResource("f0")
+animation = &"run"
+autoplay = "run"
+offset = Vector2(0, -30)
+
+[node name="colour-jump-air" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(264, 0)
+sprite_frames = ExtResource("f0")
+animation = &"jump-air"
+autoplay = "jump-air"
+offset = Vector2(0, -30)
+
+[node name="colour-sword-attack-1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(352, 0)
+sprite_frames = ExtResource("f0")
+animation = &"sword-attack-1"
+autoplay = "sword-attack-1"
+offset = Vector2(0, -30)
+
+[node name="colour-pistol-shoot" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(440, 0)
+sprite_frames = ExtResource("f0")
+animation = &"pistol-shoot"
+autoplay = "pistol-shoot"
+offset = Vector2(0, -30)
+
+[node name="white-idle" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 132)
+sprite_frames = ExtResource("f1")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -30)
+
+[node name="white-walk" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 132)
+sprite_frames = ExtResource("f1")
+animation = &"walk"
+autoplay = "walk"
+offset = Vector2(0, -30)
+
+[node name="white-run" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(176, 132)
+sprite_frames = ExtResource("f1")
+animation = &"run"
+autoplay = "run"
+offset = Vector2(0, -30)
+
+[node name="white-jump-air" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(264, 132)
+sprite_frames = ExtResource("f1")
+animation = &"jump-air"
+autoplay = "jump-air"
+offset = Vector2(0, -30)
+
+[node name="white-sword-attack-1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(352, 132)
+sprite_frames = ExtResource("f1")
+animation = &"sword-attack-1"
+autoplay = "sword-attack-1"
+offset = Vector2(0, -30)
+
+[node name="white-pistol-shoot" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(440, 132)
+sprite_frames = ExtResource("f1")
+animation = &"pistol-shoot"
+autoplay = "pistol-shoot"
+offset = Vector2(0, -30)

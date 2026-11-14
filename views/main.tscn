@@ -25,9 +25,9 @@ shape = SubResource("RectangleShape2D_tdjdl")
 position = Vector2(1312, 352)
 shape = SubResource("RectangleShape2D_kvnai")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=979664181]
+[node name="floor" type="StaticBody2D" parent="." unique_id=979664181]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2080417715]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2080417715]
 position = Vector2(640, 672)
 shape = SubResource("RectangleShape2D_71m0o")
 

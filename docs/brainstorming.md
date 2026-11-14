@@ -1,17 +1,14 @@
-# Brainstorming
+class_name VelocityHandler extends RefCounted
 
-## Concept e Storia :
+#velocità limite raggiungibile
+@export var terminalVelocity: float = 500;
 
-## Meccaniche di Gioco :
+#accelerazione px per tick
+@export var acceleration: float = 5000;
 
-## Estetica e stile grafico :
+@export var jumpForce: float = 50000;
 
-## Sound Design :
-
-## Unique Selling Points :
-
-## Lista delle dipendenze :
-
-## Timeline ? :
-
-## Competenze Team :
+func accelerate_towards(state: PhysicsDirectBodyState2D, dir: Vector2) -> void :
+	state.apply_central_force(dir.normalized()*acceleration)
+	state.linear_velocity = state.linear_velocity.limit_length(terminalVelocity)
+	
