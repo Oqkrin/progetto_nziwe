@@ -17,24 +17,29 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 @export var jump_buffer_time_max: float = 0.24
 
+var entity_state: Entity.State = Entity.State.IDLE
+
 func _ready() -> void:
 		lock_rotation = true
 		linear_damp = 7.0
 		animated_sprite.play("idle")
 		
 
+func _input(event: InputEvent) -> void:
+	jump_input(event)
+
 func _process(delta: float) -> void:	
 	directional_input() 
-	if (linear_velocity.length() == 0 ) :
-		animated_sprite.play("idle")
-	else :
-		animated_sprite.play("run")
+	
+	animated_sprite.play(Entity.State.keys()[entity_state].to_lower())
+	
 	animated_sprite.flip_h = linear_velocity.x < 0
-	jump_input()
+	
 	
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	handle_movement(state)
 	handle_jump(state)
+	entity_state = get_entity_state(state)
 			
 func directional_input() -> void : 
 	input_dir = Input.get_vector("game_left", "game_right", "game_up", "game_down")
@@ -42,12 +47,14 @@ func directional_input() -> void :
 func handle_movement(state) -> void : 
 	movement_handler.accelerate_towards(state, input_dir*horizontal_mask)
 
-func jump_input() -> void : 
-	if Input.is_action_just_pressed("game_jump") :
+func jump_input(event: InputEvent) -> void : 
+	if event.is_action_pressed("game_jump") :
 		jump_buffer_timer = jump_buffer_time_max
 
 func handle_jump(state: PhysicsDirectBodyState2D) -> void :
-	if ground_checker.is_colliding(): 
+	print(Entity.State.keys()[entity_state])
+	
+	if ground_checker.is_colliding() && entity_state != Entity.State.JUMPSTART && entity_state != Entity.State.JUMPAIR : 
 		coyote_timer = coyote_max_time
 	else: 
 		coyote_timer -= state.step
@@ -58,4 +65,15 @@ func handle_jump(state: PhysicsDirectBodyState2D) -> void :
 	if jump_buffer_timer > 0 and coyote_timer > 0: 
 		jump_buffer_timer = 0.0 
 		coyote_timer = 0.0
-		state.apply_central_force(Vector2.UP * movement_handler.jumpForce)
+		state.apply_central_impulse(Vector2.UP * movement_handler.jumpForce)	
+
+func get_entity_state(s: PhysicsDirectBodyState2D) -> Entity.State :
+	if ground_checker.is_colliding() :
+		if s.linear_velocity.x == 0 : return Entity.State.IDLE 
+		else : return Entity.State.RUN
+	elif s.linear_velocity.y < -15 :
+		return Entity.State.JUMPSTART
+	elif s.linear_velocity.y > 100 :
+		return Entity.State.JUMPLAND
+	else : 
+		return Entity.State.JUMPAIR

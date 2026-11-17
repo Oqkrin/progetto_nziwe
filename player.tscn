@@ -9,6 +9,8 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkkje"]
 size = Vector2(30, 2)
 
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_tdjdl"]
+
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1275039791]
 script = ExtResource("1_4flbx")
 
@@ -25,3 +27,6 @@ target_position = Vector2(0, 0)
 position = Vector2(0, -12)
 sprite_frames = ExtResource("2_onrkg")
 animation = &"jumpstart"
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=603472218]
+modification_stack = SubResource("SkeletonModificationStack2D_tdjdl")

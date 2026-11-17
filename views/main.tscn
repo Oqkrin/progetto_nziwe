@@ -32,4 +32,4 @@ position = Vector2(640, 672)
 shape = SubResource("RectangleShape2D_71m0o")
 
 [node name="player" parent="." unique_id=1275039791 instance=ExtResource("1_kvnai")]
-position = Vector2(661, 590)
+position = Vector2(640, 600)
